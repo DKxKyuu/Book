@@ -1,5 +1,5 @@
 import 'package:book/core/themes/app_color.dart';
-import 'package:book/screens/home/childrens/background_gradient_widget.dart';
+import 'package:book/screens/home/children/background_gradient_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/themes/app_constant.dart';

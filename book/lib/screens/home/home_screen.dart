@@ -1,7 +1,8 @@
-import 'package:book/screens/home/childrens/background_gradient_widget.dart';
-import 'package:book/screens/home/childrens/bottom_navigation_bar.dart';
-import 'package:book/screens/home/childrens/home_page_screen.dart';
-import 'package:book/screens/home/childrens/profile_page_screen.dart';
+import 'package:book/screens/home/children/background_gradient_widget.dart';
+import 'package:book/screens/home/children/bottom_navigation_bar.dart';
+import 'package:book/screens/home/children/home_page_screen.dart';
+import 'package:book/screens/home/children/my_book_screen.dart';
+import 'package:book/screens/home/children/profile_page_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -24,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
             controller: pageController,
             children: [
               const HomePageScreen(),
-              Container(),
+              MyBookScreen(),
               const ProfilePageScreen(),
             ]),
       ),
