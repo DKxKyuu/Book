@@ -1,7 +1,7 @@
 import 'package:book/core/themes/app_color.dart';
 import 'package:book/core/themes/app_constant.dart';
 import 'package:book/core/utils/navigator_names.dart';
-import 'package:book/repositories/models/book_model.dart';
+import 'package:book/repositories/models/book_detail_model.dart';
 import 'package:book/screens/home/children/background_gradient_widget.dart';
 import 'package:book/screens/list_chapters/children/app_bar_list_chapters_widget.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 class ListChaptersScreen extends StatelessWidget {
   ListChaptersScreen({super.key, required this.model});
 
-  BookModel model;
+  BookDetailModel model;
 
   List<String> items = [
     'Chương ',
@@ -87,11 +87,14 @@ class ListChaptersScreen extends StatelessWidget {
             ),
             Expanded(
                 child: ListView.builder(
-              itemCount: items.length,
+              itemCount: model.chapterUrls.length,
               itemBuilder: (context, index) {
                 return GestureDetector(
-                  onTap: () =>
-                      Navigator.pushNamed(context, NavigatorNames.DETAIL_BOOK),
+                  onTap: () => Navigator.pushNamed(
+                      context, NavigatorNames.CONTENT_CHAPTER, arguments: {
+                    'list': model.chapterUrls,
+                    'currentIndex': index
+                  }),
                   child: Container(
                     margin: const EdgeInsets.symmetric(vertical: 9),
                     height: 55,
@@ -106,7 +109,7 @@ class ListChaptersScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "${index + 1}. ${items[index]}Tiểu tam",
+                          "Chương ${index + 1} ",
                           style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w600,

@@ -1,9 +1,14 @@
+import 'package:book/repositories/models/book_detail_model.dart';
 import 'package:book/repositories/models/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
+import '../../../repositories/customer_widget/image_customer.dart';
+
 class ShortcutBookWidegt extends StatelessWidget {
-  ShortcutBookWidegt({super.key, required this.model});
+  ShortcutBookWidegt(
+      {super.key, required this.model, required this.modelDetail});
+  BookDetailModel? modelDetail;
   BookModel model;
 
   @override
@@ -12,16 +17,17 @@ class ShortcutBookWidegt extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.asset(
-          "assets/images/image_default.jpg",
-          height: 400,
-          width: 250,
+        CustomImage2(
+          url:
+              'https://img.otruyenapi.com/uploads/comics/${model.thumbNailURL}',
+          height: 250,
+          width: 150,
           fit: BoxFit.cover,
         ),
         Container(
           margin: const EdgeInsets.symmetric(vertical: 10),
           child: Text(
-            model.nameBook ?? "Null data",
+            model.nameBook ?? "No dara",
             style: const TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
@@ -30,7 +36,7 @@ class ShortcutBookWidegt extends StatelessWidget {
           ),
         ),
         Text(
-          model.author ?? "Null data",
+          modelDetail?.author ?? "Null data",
           style: const TextStyle(
             fontSize: 16,
             color: Colors.grey,

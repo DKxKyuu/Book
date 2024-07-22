@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 class CategoryBookWidget extends StatelessWidget {
   CategoryBookWidget(
       {super.key, required this.categories, required this.quanityChapters});
-  String categories;
+  List<String> categories;
   String quanityChapters;
+  /*
+  
+  */
   @override
   Widget build(BuildContext context) {
+    final categoriesString = categories.join(', ');
     return Container(
       margin: const EdgeInsets.only(top: 9, bottom: 12),
       child: Column(
@@ -28,7 +32,7 @@ class CategoryBookWidget extends StatelessWidget {
             ),
           ),
           Text(
-            categories,
+            categoriesString ?? "Danh Sasch",
             style: const TextStyle(
                 fontSize: 14, fontWeight: FontWeight.w400, color: Colors.white),
           ),

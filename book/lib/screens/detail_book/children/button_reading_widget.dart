@@ -1,12 +1,11 @@
-import 'package:book/repositories/models/book_model.dart';
+import 'package:book/repositories/models/book_detail_model.dart';
 import 'package:flutter/material.dart';
-
 import '../../../core/themes/app_color.dart';
 import '../../../core/utils/navigator_names.dart';
 
 class ButtonReadingWidget extends StatelessWidget {
   ButtonReadingWidget({super.key, required this.model});
-  BookModel model;
+  BookDetailModel model;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,7 +19,7 @@ class ButtonReadingWidget extends StatelessWidget {
           ),
           onPressed: () {
             Navigator.pushNamed(context, NavigatorNames.LIST_CHAPTERS,
-                arguments: {'BookModel': model});
+                arguments: {'BookModelDetail': model});
           },
           child: const Text(
             "Đọc sách",

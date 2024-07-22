@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../../../core/themes/app_color.dart';
 
-// ignore: must_be_immutable
-class AppbarDetailBookWidget extends StatelessWidget {
-  AppbarDetailBookWidget({super.key, required this.title});
-  String title;
+class AppBarContentChapterWidget extends StatelessWidget {
+  AppBarContentChapterWidget({super.key, required this.index});
+
+  int index;
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 12),
+      margin: const EdgeInsets.only(top: 12, bottom: 3),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -21,16 +21,21 @@ class AppbarDetailBookWidget extends StatelessWidget {
               color: Colors.white,
             ),
           ),
-          const Text(
-            "Chi tiết truyện",
-            textAlign: TextAlign.justify,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
+          Text(
+            "Chương $index",
+            style: const TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.w700,
                 color: AppColors.primary),
           ),
-          Container(),
+          const SizedBox(
+            width: 25,
+            height: 25,
+            child: Icon(
+              Icons.save,
+              color: Colors.white,
+            ),
+          )
         ],
       ),
     );
